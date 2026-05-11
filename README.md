@@ -202,17 +202,6 @@ academic-writing-prompts/
     └── Chinese/
 ```
 
-## Contributing
-
-Pull requests welcome. High-value contributions:
-
-- **Discipline-specific worked examples.** The current example is psychology / media studies. Humanities (close-reading literature essay), STEM (CS algorithm-analysis essay), and social-science (sociology / political-theory essay) examples would help different student audiences.
-- **More languages.** The pipeline structure is language-agnostic. Simplified Chinese, Japanese, Korean, French, Spanish ports would broaden reach.
-- **Refine checklist patches.** The Anti-AI-Tells list will need updates as AI writing patterns evolve. Open an issue if you spot a tell the checklist misses.
-- **CC plugin manifest.** Adding a `plugin.json` so the repo installs as a single Claude Code plugin (instead of per-skill symlinks) would simplify the install path.
-
-Open an issue first for anything larger than a single-file change so we can align on scope.
-
 ## License
 
 MIT — see [`LICENSE`](LICENSE). Reuse, fork, and adapt freely. Attribution appreciated but not required.
