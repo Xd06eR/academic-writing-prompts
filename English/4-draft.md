@@ -73,3 +73,25 @@ Why bad: "Studies have shown" with no citation, "it is widely known", "delve", "
 - Do not introduce new claims, sources, or counterarguments that are not in the outline or source map.
 - If the word budget is tight, cut adjective stacks and metacommentary first, not content.
 - Render citations in the exact style specified in Essay Context (APA 7, MLA 9, etc.). If unsure, ask once; do not silently pick.
+
+## Required: consult these anti-AI-tell resources before writing
+
+Before producing the draft, **read the following four resources** (or recall their content if already familiar) and actively avoid the patterns they catalogue. The goal is prose that does not read as LLM output. Do not just internalise vaguely — apply them sentence by sentence:
+
+1. **Wikipedia, [*Signs of AI writing*](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)** — comprehensive catalogue: inflated symbolism, promotional language, superficial -ing analyses, vague attributions, em-dash overuse, rule of three, AI vocabulary words (delve, leverage, multifaceted, navigate the complexities of, in the realm of, tapestry, underscore, garner, foster), passive voice over-use, negative parallelisms ("not just X, but Y"), filler phrases ("it is important to note"). Avoid every pattern listed.
+2. **[`humanizer` by blader](https://github.com/blader/humanizer)** — practical fixes to AI-flavoured prose. Apply the same fixes preemptively while drafting.
+3. **[`stop-slop` by hardikpandya](https://github.com/hardikpandya/stop-slop)** — additional catalogue of "AI slop" patterns. Cross-check against this list too.
+4. **[`tropes.fyi`](https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1)** — tropes catalogue (also at https://tropes.fyi/tropes-md).
+
+Concrete operations these resources enforce on draft prose:
+
+- Use specific verbs and named subjects. Replace "studies have shown" with "Author (Year) found"; replace "this approach has many benefits" with the benefits themselves.
+- Cap em-dashes at roughly ≤1 per 200 words.
+- Break the rule of three whenever it appears as a default. Two items, or four, is usually more honest.
+- Strip every "in today's fast-paced world", "in the realm of", "delve into", "leverage", "navigate the complexities of", "multifaceted", "tapestry", "underscore", "garner".
+- Cut empty connectors: "It is important to note that", "It is worth mentioning that", "Furthermore, it can be argued that".
+- Prefer active voice unless the discipline mandates passive (e.g. some scientific reporting).
+- Avoid promotional adjective stacks ("a robust, scalable, and elegant solution").
+- Avoid hollow generalities about the importance of the topic.
+
+If a sentence in the draft matches one of these patterns, rewrite it before emitting. Do not rely on `5-refine` to catch it — write it correctly the first time.

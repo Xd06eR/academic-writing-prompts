@@ -82,11 +82,22 @@ If any checklist item is still `warn` or `fail` after this revision, paste this 
 - Keep the user's voice. If a defect is "this sounds like the user's voice but the prof wants more academic register", say so and let the user decide.
 - One round per invocation. The user controls the loop.
 
-## Recommended companion resources (external)
+## Required: consult these anti-AI-tell resources before refining
 
-These resources catalogue AI-writing patterns the checklist's `Anti-AI-Tells` criterion is built on. Read them once to internalise the patterns:
+Before running the Checklist, **read (or recall) the following four resources** and use them as your operating definition of "AI tell". The `Anti-AI-Tells` checklist item is built on these — do not just match its short bullet list, match the *full* pattern catalogues:
 
-- Wikipedia, *Signs of AI writing* — comprehensive catalogue, the basis of the `humanizer` skill.
-- `humanizer` by blader — https://github.com/blader/humanizer
-- `stop-slop` by hardikpandya — https://github.com/hardikpandya/stop-slop
-- `tropes.fyi` (gist) — https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1
+1. **Wikipedia, [*Signs of AI writing*](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)** — comprehensive catalogue of every documented AI-writing pattern. Use it as the canonical source.
+2. **[`humanizer` by blader](https://github.com/blader/humanizer)** — practical fixes to AI-flavoured prose. The fixes listed here are good candidate **Fix:** entries for your Defects list.
+3. **[`stop-slop` by hardikpandya](https://github.com/hardikpandya/stop-slop)** — additional catalogue of "AI slop" patterns; cross-check against this.
+4. **[`tropes.fyi`](https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1)** — tropes catalogue (also at https://tropes.fyi/tropes-md).
+
+Operational rules these resources enforce when refining:
+
+- If the draft contains "delve / leverage / garner / multifaceted / navigate the complexities of / in the realm of / tapestry / underscore / foster", flag every instance as `Defects` entries with **Fix:** entries that substitute specific verbs.
+- If em-dash density exceeds ~1 per 200 words, flag and reduce.
+- If rule-of-three sentence patterns appear as a default (three nouns, three clauses, three adjectives), flag and break the pattern in at least half of them.
+- If any "studies have shown" / "research indicates" / "it is widely accepted" appears without a named source, flag as `Evidence-Use` `fail`.
+- If negative parallelism ("not just X, but Y") appears more than once, flag.
+- If the draft opens with "In today's fast-paced world", "In the modern era", "In recent years", or any equivalent throat-clearing, flag and propose cutting the sentence.
+
+The Defects list should reference these patterns by name (e.g. "Para 2, 'delve into' — AI tell per Wikipedia *Signs of AI writing*"). Be specific about *which* pattern from *which* resource was triggered.
