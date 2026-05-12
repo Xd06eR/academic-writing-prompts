@@ -36,4 +36,4 @@ Generative AI coding assistants harm junior developers' acquisition of debugging
 - Reading order: 0 → 1 → 2 → 3 → 4 → 5.
 - Look at `1-capture-output.md` first if you want to see the grill loop in action — it is the most distinctive part of the pipeline.
 - Look at `2-lit-review-output.md` if you want to see how the skill handles uncertain citations (the `[VERIFY]` rows are deliberate).
-- Use the prompts in `English/` (or the orchestrator skill in `skills/en/academic-writing/`) to run your own essay through the same pipeline.
+- Use the prompts in `skills/en/academic-writing/steps/` (or invoke the orchestrator skill directly) to run your own essay through the same pipeline.

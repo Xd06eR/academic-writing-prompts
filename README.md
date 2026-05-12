@@ -97,15 +97,15 @@ For Chinese essays, just ask in Chinese — the `academic-writing-zh` skill take
 
 ### Option B — Manual use (any LLM)
 
-Open the step files in [`English/`](English/) or [`Chinese/`](Chinese/) and paste them into your LLM chat one phase at a time:
+Open the step files in [`skills/en/academic-writing/steps/`](skills/en/academic-writing/steps/) or [`skills/zh/academic-writing/steps/`](skills/zh/academic-writing/steps/) and paste them into your LLM chat one phase at a time:
 
-1. Pick a language: [`English/`](English/) or [`Chinese/`](Chinese/).
-2. Fill in [`English/essay-context.md`](English/essay-context.md) (or [`Chinese/essay-context.md`](Chinese/essay-context.md)) for your essay.
-3. Open `1-capture-argument.md`. Paste the Essay Context at the top, paste your raw thinking under `## Raw input:`, and run it.
-4. Take the output, paste it into the next phase (`2-lit-review.md` if you need sources, otherwise `3-outline.md`), and continue down the pipeline.
+1. Pick a language: [`skills/en/academic-writing/`](skills/en/academic-writing/) or [`skills/zh/academic-writing/`](skills/zh/academic-writing/).
+2. Fill in `steps/00-essay-context.md` for your essay.
+3. Open `steps/01-capture-argument.md`. Paste the Essay Context at the top, paste your raw thinking under `## Raw input:`, and run it.
+4. Take the output, paste it into the next phase (`02-lit-review.md` if you need sources, otherwise `03-outline.md`), and continue down the pipeline.
 5. Each step has clear input/output contracts. The output of step N is what you paste at the top of step N+1.
 
-A fully worked example for both languages is in [`examples/`](examples/).
+A fully worked example for both languages lives in each skill's `references/` folder.
 
 ## Files
 
@@ -113,19 +113,19 @@ A fully worked example for both languages is in [`examples/`](examples/).
 
 | # | English | Chinese |
 |---|---------|---------|
-| — | [`English/essay-context.md`](English/essay-context.md) | [`Chinese/essay-context.md`](Chinese/essay-context.md) |
-| 1 | [`English/1-capture-argument.md`](English/1-capture-argument.md) | [`Chinese/1-擷取論點.md`](Chinese/1-擷取論點.md) |
-| 2 | [`English/2-lit-review.md`](English/2-lit-review.md) | [`Chinese/2-文獻回顧.md`](Chinese/2-文獻回顧.md) |
-| 3 | [`English/3-outline.md`](English/3-outline.md) | [`Chinese/3-大綱.md`](Chinese/3-大綱.md) |
-| 4 | [`English/4-draft.md`](English/4-draft.md) | [`Chinese/4-起草.md`](Chinese/4-起草.md) |
-| 5 | [`English/5-refine.md`](English/5-refine.md) | [`Chinese/5-修訂.md`](Chinese/5-修訂.md) |
+| — | [`skills/en/academic-writing/steps/00-essay-context.md`](skills/en/academic-writing/steps/00-essay-context.md) | [`skills/zh/academic-writing/steps/00-essay-context.md`](skills/zh/academic-writing/steps/00-essay-context.md) |
+| 1 | [`skills/en/academic-writing/steps/01-capture-argument.md`](skills/en/academic-writing/steps/01-capture-argument.md) | [`skills/zh/academic-writing/steps/01-擷取論點.md`](skills/zh/academic-writing/steps/01-擷取論點.md) |
+| 2 | [`skills/en/academic-writing/steps/02-lit-review.md`](skills/en/academic-writing/steps/02-lit-review.md) | [`skills/zh/academic-writing/steps/02-文獻回顧.md`](skills/zh/academic-writing/steps/02-文獻回顧.md) |
+| 3 | [`skills/en/academic-writing/steps/03-outline.md`](skills/en/academic-writing/steps/03-outline.md) | [`skills/zh/academic-writing/steps/03-大綱.md`](skills/zh/academic-writing/steps/03-大綱.md) |
+| 4 | [`skills/en/academic-writing/steps/04-draft.md`](skills/en/academic-writing/steps/04-draft.md) | [`skills/zh/academic-writing/steps/04-起草.md`](skills/zh/academic-writing/steps/04-起草.md) |
+| 5 | [`skills/en/academic-writing/steps/05-refine.md`](skills/en/academic-writing/steps/05-refine.md) | [`skills/zh/academic-writing/steps/05-修訂.md`](skills/zh/academic-writing/steps/05-修訂.md) |
 
 ### Worked example (synthetic, for reference)
 
 A complete pipeline output for the topic **"AI coding assistants harm junior developers' debugging skill acquisition"** (HCI / cognitive-psych frame, APA 7, 2000 words, full essay):
 
-- English — [`examples/ai-coding-assistants-en/`](examples/ai-coding-assistants-en/) (also bundled inside the skill at [`skills/en/academic-writing/references/`](skills/en/academic-writing/references/))
-- Chinese — [`examples/ai-coding-assistants-zh/`](examples/ai-coding-assistants-zh/) (also bundled inside the skill at [`skills/zh/academic-writing/references/`](skills/zh/academic-writing/references/))
+- English — [`skills/en/academic-writing/references/`](skills/en/academic-writing/references/)
+- Chinese — [`skills/zh/academic-writing/references/`](skills/zh/academic-writing/references/)
 
 Each folder contains the output of every phase: Essay Context, the grill-loop transcript and capture-argument output, the lit-review source map (with two `[VERIFY]` rows demonstrating the skill's honesty about uncertainty), the outline, the 2000-word draft, and the refine checklist + revised draft.
 
@@ -138,7 +138,7 @@ Each folder contains the output of every phase: Essay Context, the grill-loop tr
 | English | [`skills/en/academic-writing/`](skills/en/academic-writing/) | Orchestrator: runs all 5 phases with checkpoints |
 | Traditional Chinese | [`skills/zh/academic-writing/`](skills/zh/academic-writing/) | Same, in Chinese |
 
-Each orchestrator's `steps/` subfolder symlinks back to the top-level prompt files, so edits to the canonical prompts propagate automatically.
+Each orchestrator's `steps/` subfolder contains the canonical prompt files for that language; `references/` holds the worked example output.
 
 ### Archive
 
@@ -172,36 +172,31 @@ The `5-refine` skill's anti-AI-tells checklist is informed by these resources. R
 academic-writing-prompts/
 ├── README.md
 ├── LICENSE                                ← MIT
-├── English/                               ← canonical prompt files (manual-use source of truth)
-│   ├── essay-context.md
-│   ├── 1-capture-argument.md
-│   ├── 2-lit-review.md
-│   ├── 3-outline.md
-│   ├── 4-draft.md
-│   └── 5-refine.md
-├── Chinese/                               ← same, native Traditional Chinese with inline English terms
-│   ├── essay-context.md
-│   ├── 1-擷取論點.md
-│   ├── 2-文獻回顧.md
-│   ├── 3-大綱.md
-│   ├── 4-起草.md
-│   └── 5-修訂.md
-├── examples/                              ← LLM-generated workflow demos (see folder READMEs)
-│   ├── ai-coding-assistants-en/
-│   │   ├── README.md                      ← synthetic-origin disclaimer + topic blurb
-│   │   └── 0..5-*.md                      ← phase-by-phase outputs
-│   └── ai-coding-assistants-zh/
-│       ├── README.md
-│       └── 0..5-*.md
-├── skills/                                ← Claude Code orchestrator skills
+├── skills/                                ← Claude Code orchestrator skills (canonical content)
 │   ├── en/academic-writing/
 │   │   ├── SKILL.md                       ← runs all 5 phases with checkpoints
-│   │   ├── steps/                         ← symlinks to top-level English/* prompts
-│   │   └── references/                    ← symlink to examples/ai-coding-assistants-en/
+│   │   ├── steps/                         ← canonical English prompt files
+│   │   │   ├── 00-essay-context.md
+│   │   │   ├── 01-capture-argument.md
+│   │   │   ├── 02-lit-review.md
+│   │   │   ├── 03-outline.md
+│   │   │   ├── 04-draft.md
+│   │   │   └── 05-refine.md
+│   │   └── references/                    ← worked example output (LLM-generated demo)
+│   │       ├── README.md
+│   │       └── 0..5-*.md
 │   └── zh/academic-writing/
 │       ├── SKILL.md                       ← runs all 5 phases with checkpoints, in Chinese
-│       ├── steps/                         ← symlinks to top-level Chinese/* prompts
-│       └── references/                    ← symlink to examples/ai-coding-assistants-zh/
+│       ├── steps/                         ← canonical Traditional Chinese prompt files
+│       │   ├── 00-essay-context.md
+│       │   ├── 01-擷取論點.md
+│       │   ├── 02-文獻回顧.md
+│       │   ├── 03-大綱.md
+│       │   ├── 04-起草.md
+│       │   └── 05-修訂.md
+│       └── references/                    ← worked example output
+│           ├── README.md
+│           └── 0..5-*.md
 └── archive/                               ← old V1–V3 single-prompt versions
     ├── English/
     └── Chinese/

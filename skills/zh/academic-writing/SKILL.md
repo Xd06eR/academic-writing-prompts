@@ -105,7 +105,7 @@ Phase 5 — 修訂                 [steps/05-修訂.md]              可迭代
 
 ## 範例（reference，不是真人實跑成品）
 
-整條流水線在「AI coding assistants 損害 junior developer 的 debugging skill 習得」這個題目上的完整跑 through，已綁進本 skill 的 [`references/`](references/)（指向 repo root 的 `examples/ai-coding-assistants-zh/` 的 symlink）。每個階段的輸出都收錄在那裡。
+整條流水線在「AI coding assistants 損害 junior developer 的 debugging skill 習得」這個題目上的完整跑 through，已綁進本 skill 的 [`references/`](references/)。每個階段的輸出都收錄在那裡。
 
 **重要：** 這份綁定的範例是 LLM 為了示範 workflow 而生成的，不是真人學生寫的真實論文。Grill-loop 對話、Source map（含兩條 `[VERIFY]` 列）、draft、refine pass，全部都是 LLM 合成的。把它當作**形態參考（shape reference）**來看——讓你知道每個階段「好的輸出長甚麼樣」——不要把它當作「pipeline 永遠產出可發表作品」的證據。完整免責聲明見 [`references/README.md`](references/README.md)。
 
