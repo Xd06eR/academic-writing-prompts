@@ -49,7 +49,7 @@ cp -r skills/en/academic-writing ~/.claude/skills/academic-writing
 cp -r skills/zh/academic-writing ~/.claude/skills/academic-writing-zh
 ```
 
-OpenCode users: swap `~/.claude/skills` for `~/.config/opencode/skills`. Restart the client after install.
+OpenCode users can swap `~/.claude/skills` for `~/.config/opencode/skills`, but OpenCode also scans `~/.claude/skills/` for compatibility — the Claude paths above work for both tools. Restart the client after install.
 
 ### Manual use (any LLM)
 
