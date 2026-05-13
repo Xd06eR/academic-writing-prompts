@@ -36,4 +36,4 @@ Generative AI coding assistants 透過取代 productive struggle，損害 junior
 - 閱讀順序：0 → 1 → 2 → 3 → 4 → 5。
 - 想先看 grill loop 怎樣跑，直接看 `1-capture-output.md`——那是整條 pipeline 最有特色的一部分。
 - 想看 skill 怎樣處理不確定 citation，看 `2-lit-review-output.md` 的 `[VERIFY]` 列。
-- 用 `skills/zh/academic-writing/steps/` 內的 prompts（或直接呼叫 orchestrator skill）把你自己的題目跑一次。
+- 用 `skills/academic-writing-zh/steps/` 內的 prompts（或直接呼叫 orchestrator skill）把你自己的題目跑一次。

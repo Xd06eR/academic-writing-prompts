@@ -43,17 +43,17 @@ cd academic-writing-prompts
 mkdir -p ~/.claude/skills
 
 # English (covers all 5 phases)
-cp -r skills/en/academic-writing ~/.claude/skills/academic-writing
+cp -r skills/academic-writing ~/.claude/skills/academic-writing
 
 # Traditional Chinese (optional)
-cp -r skills/zh/academic-writing ~/.claude/skills/academic-writing-zh
+cp -r skills/academic-writing-zh ~/.claude/skills/academic-writing-zh
 ```
 
 OpenCode users can swap `~/.claude/skills` for `~/.config/opencode/skills`, but OpenCode also scans `~/.claude/skills/` for compatibility — the Claude paths above work for both tools. Restart the client after install.
 
 ### Manual use (any LLM)
 
-Open the step files in [`skills/en/academic-writing/steps/`](skills/en/academic-writing/steps/) or [`skills/zh/academic-writing/steps/`](skills/zh/academic-writing/steps/) and paste them into your chat one phase at a time. The output of each step is the input to the next. Phase 2 (lit-review) requires an LLM with web search.
+Open the step files in [`skills/academic-writing/steps/`](skills/academic-writing/steps/) or [`skills/academic-writing-zh/steps/`](skills/academic-writing-zh/steps/) and paste them into your chat one phase at a time. The output of each step is the input to the next. Phase 2 (lit-review) requires an LLM with web search.
 
 ## Companion resources
 
