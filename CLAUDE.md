@@ -1,4 +1,4 @@
-# Agent Notes: academic-writing-prompts
+# Agent notes: academic-writing-prompts
 
 AGENTS.md is a symlink to this file; edit here, never there.
 

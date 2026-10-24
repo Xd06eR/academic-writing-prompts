@@ -44,6 +44,10 @@ Every paragraph must trace to a sub-claim, a personal angle, or a counterargumen
 - Allocate per section, split to paragraphs. Allocations sum exactly to the body target; reserves outside the body (abstract, front matter) are stated separately.
 - Draft tolerances (±15% per section, ±10% overall, see `draft.md`) absorb the drafting wobble; the outline's arithmetic does not rely on them.
 
+## Citation style
+
+From the user, venue, or template; none given: ask once at this step, and the header carries it downstream.
+
 ## Coverage check
 
 Run before presenting; every line must close:

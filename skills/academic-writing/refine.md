@@ -17,7 +17,7 @@ Missing context is an audit limitation, not a blocker: if the capture Output blo
 
 ## The structural gate (before any prose work)
 
-Check the focus section against its committed job first: does it do what the outline assigned it (or, without an outline, what the thesis and sub-claims require of it)? If the section is structurally wrong (wrong job, wrong position, a sub-claim it cannot support), stop. Report the structural defect and escalate: the fix belongs to outline or capture, and polishing prose that will be rewritten is wasted work. The gate passes, or the round ends without a Revised text. A failed gate ends the round at the report: the structural defect goes under Defects, the escalation and next step under Continue?, the checklist does not run, and no Revised text is emitted.
+Check the focus section against its committed job first: does it do what the outline assigned it (or, without an outline, what the thesis and sub-claims require of it)? If the section is structurally wrong (wrong job, wrong position, a sub-claim it cannot support), stop. Report the structural defect and escalate: the fix belongs to outline or capture, and polishing prose that will be rewritten is wasted work. The gate passes, or the round ends without a Revised text. A failed gate ends the round at the report: the structural defect goes under Defects, the escalation and next step under Continue, the checklist does not run, and no Revised text is emitted.
 
 ## Checklist (run every round that passes the gate, focus scope only)
 
@@ -100,13 +100,13 @@ Tie every strength to a passage: "P4 concedes the productivity finding in one se
 ## Revised text
 [The focus scope with only the listed fixes applied. No global rewrite, no new sources, voice kept. Criticals that need user material or a decision stay visible, marked inline with what they need.]
 
-## Continue?
+## Continue
 [State certified or not certified: certified means all criteria pass or warn with no open Criticals. What remains open and who decides the next round. One round per invocation; the user controls the loop.]
 ```
 
 ## The fresh-context AI-tell audit
 
-Your own catalogues pass under-detects: you wrote or last touched the text, and the catalogues file says an author scanning their own prose catches fewer of their tells. So the whole-document pass ends with a fresh-context audit, dispatched as session behaviour under the session's own dispatch rules: a reviewer that never saw the drafting context reads the final text against `references/anti-ai-tell-catalogues.md` and returns findings. Reconcile its findings with yours: accept what it caught that you missed, keep documented decisions it challenges only with a reason, and fold accepted findings into the round. A full fresh-context review beyond the tell-audit is the user's call, made on stakes, not a standing step.
+Your own catalogues pass under-detects: you wrote or last touched the text, and the catalogues file says an author scanning their own prose catches fewer of their tells. So the whole-document pass ends with a fresh-context audit, dispatched as session behaviour under the session's own dispatch rules: a subagent that never saw the drafting context reads the final text against `references/anti-ai-tell-catalogues.md` and returns findings. Reconcile its findings with yours: accept what it caught that you missed, keep documented decisions it challenges only with a reason, and fold accepted findings into the round. A full fresh-context review beyond the tell-audit is the user's call, made on stakes, not a standing step.
 
 ## Constraints
 

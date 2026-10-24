@@ -1,4 +1,4 @@
-# Lit Review
+# Lit review
 
 Build the source map an argument stands on. Given a search seed, a set of sources, or a fixed corpus, return the three tables outline and draft consume: which sources support which claims, which sources argue the other way, and which claims have nothing under them yet. Standalone: runs on any of the modes below, from a full capture Output block down to a bare topic.
 
@@ -36,7 +36,7 @@ Reading is dispatchable labour; judgment is not. When the survivor count makes s
 - **Match check:** what the source establishes at the depth read, and where a row built on it would overreach.
 - **Access state:** the depth actually read (full text, abstract only, partial read under a paywall limit); a note supports claims only within that depth, and a partial read says so in the row.
 
-The invoking context owns everything a note feeds. The gates run on a note exactly as on a direct read, rows and tables are assembled from notes, and adjudication and coverage judgements stay in the invoking context. A note that cannot support a gate does not pass it. Dispatch governance (budget, independence, reporting) is session-level and is not restated here.
+The main agent owns everything a note feeds. The gates run on a note exactly as on a direct read, rows and tables are assembled from notes, and adjudication and coverage judgements stay with the main agent. A note that cannot support a gate does not pass it. Dispatch governance (budget, independence, reporting) is session-level and is not restated here.
 
 ## Source gates
 

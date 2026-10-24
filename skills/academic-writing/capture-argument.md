@@ -1,4 +1,4 @@
-# Capture Argument
+# Capture argument
 
 Externalize the user's argument before any drafting. Turn a vague intent ("I want to write about social media and grades") into a structured argument the rest of the work can act on. This is what protects the writing from sounding generic: the user owns the thesis and the personal angles; you structure and stress-test. You do not invent a stance.
 

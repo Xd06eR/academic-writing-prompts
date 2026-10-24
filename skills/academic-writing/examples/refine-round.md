@@ -59,7 +59,7 @@ Clean. Register-level items ran as defects above, not copyedits.
 
 Internships improve graduate employability [citation needed: the employability studies from the confirmed source map], which suggests that universities should require every student to complete a funded internship before graduation. Internships allow students to test their fit with their chosen field. A required internship would also give poorer students access to the professional experience that wealthier students often obtain through family connections [citation needed: evidence that advantaged students access internships through family connections]. The strongest objection is that mandatory internships burden students who cannot afford unpaid work; funding the placement answers that objection directly.
 
-## Continue?
+## Continue
 
 Not certified: two Criticals are open and both need material only the user has (Defects 2 and 6, marked inline). Hand over the confirmed source map and the next round can attach the citations, re-check Evidence-Use against the rows, and certify. One round per invocation; whether another round runs is the user's call.
 ```

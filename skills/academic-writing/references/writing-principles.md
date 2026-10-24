@@ -1,4 +1,4 @@
-# Writing Principles
+# Writing principles
 
 The discipline contract behind every writing action this skill performs. Load this file before touching prose in any capability.
 
@@ -119,7 +119,7 @@ Match the verb to the evidence. The ladder:
 - Section so-what: Introduction earns care (stakes, gap); Literature review earns "what is missing"; Methodology earns trust; Results lead with the finding; Discussion answers the gap with the delta; Conclusion leaves one sentence that carries the contribution.
 - Introduction rhetoric (CARS): Move 1 territory (centrality claims cited, synthesized not listed) → Move 2 niche (licensed by the review; scoped negative, never a universal) → Move 3 occupy (purpose sentence concrete, active, answering exactly that niche; RQ stated verbatim). Failure modes: funnel too wide, literature dump, unlicensed gap, buried purpose, niche-purpose mismatch, findings leaked into the preview.
 - RQ or hypothesis wording is identical everywhere it appears: posed in the Introduction, used in Methods, answered in Conclusion; wording that drifts between appearances is a defect. Intro may preview the contribution type; numbers stay in Results.
-- Counter-evidence is engaged, never avoided. The strongest objection gets a fair statement and a concede-and-limit response; limitations and alternative interpretations are acknowledged in the text, not silently skipped.
+- Counter-evidence is engaged, never avoided. The strongest objection gets a fair statement and a response in its committed rebuttal strategy; limitations and alternative interpretations are acknowledged in the text, not silently skipped.
 - Meta-commentary ("this section will discuss") is banned; roadmap sentences appear only where the venue or document convention expects them. Section numbering and figure references are output-facing only; internal working labels never enter academic prose.
 - Structure patterns are audited at document scale: mirror structure (the same section template repeated where the content asks otherwise), binary-contrast habits and false dichotomies, and colon-list sequences that fragment the argument. Fix only a real clarity or support problem; parallel structure that aids comparison stays.
 - Every figure and table is numbered per the venue convention, captioned, and referenced in the text; a figure inserted without an in-text reference and a statement of what it shows is a defect.

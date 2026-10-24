@@ -1,4 +1,4 @@
-# Anti-AI-Tell Catalogues
+# Anti-AI-tell catalogues
 
 Patterns that mark prose as machine-generated. Load before generating prose and when revising it. The purpose is writing that reads as written by a person: clear, specific, varied. This file improves writing quality; it does not game AI detectors, and no rule here outranks a real clarity, precision, or support requirement.
 
