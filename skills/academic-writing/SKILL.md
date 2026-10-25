@@ -1,121 +1,62 @@
 ---
 name: academic-writing
-description: Use when the user wants to write or revise an academic essay end-to-end. Runs a 5-phase pipeline (Capture → Lit-review → Outline → Draft → Refine) with user checkpoints, ensuring the user owns the argument while the assistant handles structure, sourcing, and editorial discipline. Triggers on phrases like "help me write an essay", "write my paper", "academic essay", "thesis paper", "argumentative essay", "I need to write a 2000-word paper", "draft my essay", "outline my essay", "polish my essay". For Chinese essays, use the academic-writing-zh skill instead.
+description: Use when the user wants to write, outline, revise, or polish an essay, report chapter, or paper section in English. Entry at any phase, from blank page to finished prose. Not for systematic research reviews or other large literature projects, and not for writing in languages other than English.
 ---
 
-# Academic Writing Pipeline
+# Academic writing
 
-You orchestrate a 5-phase essay-writing pipeline. The user owns the argument; you handle structure, sourcing, and editorial discipline. Each phase has its own prompt file in `steps/`; read the file at the start of each phase and follow it.
+The writing base: academic prose that survives a meticulous reader. This skill reads what the user brought and routes it to one of five standalone capabilities: `capture-argument`, `lit-review`, `outline`, `draft`, `refine`. Each capability runs alone on whatever arrives; the guided flow below chains them for users who bring nothing.
 
-The point of running this as a single orchestrated skill is so the user does not have to copy and paste each phase's output into the next phase's input. You keep state across phases and hand off internally.
+## Protocol (hard lines)
 
-## Pipeline
+- Load `references/writing-principles.md` before any writing action. Every capability states its own load line; this line is the contract they inherit from.
+- Load `references/anti-ai-tell-catalogues.md` before generating or revising prose.
 
-```
-Phase 0 — Essay Context        [steps/00-essay-context.md]    one-time setup
-Phase 1 — Capture argument     [steps/01-capture-argument.md] grill-me loop
-            ↓ user checkpoint
-Phase 2 — Lit-review (opt.)    [steps/02-lit-review.md]       web-search required
-            ↓ user checkpoint
-Phase 3 — Outline              [steps/03-outline.md]
-Phase 4 — Draft                [steps/04-draft.md]
-Phase 5 — Refine               [steps/05-refine.md]           may iterate
-```
+## Intake (inference-led)
 
-## When NOT to use
+Read what the user's message carries and route:
 
-- Single-sentence rewrite or polishing of an existing paragraph (use a normal editing chat).
-- Creative writing, fiction, business writing, journalism (this is for academic essays).
-- The user wants to invoke only one phase manually. (In that case, paste the relevant `steps/0N-*.md` file directly into a fresh chat — the prompt files are self-contained.)
+- **Nothing but a want to write.** The guided flow below.
+- **A topic, vibe, or gut position.** `capture-argument.md`.
+- **A thesis, brain-dump, or settled argument.** `capture-argument.md` verifies and completes it.
+- **A research question, a pile of sources, or a named corpus.** `lit-review.md`.
+- **An argument plus structure to commit.** `outline.md`.
+- **A committed outline.** `draft.md`.
+- **Draft prose, any stage.** `refine.md`.
 
-## Running the pipeline
+Ask one question only when the route is genuinely ambiguous (materials that fit two capabilities with different next actions). Otherwise start at the capability; each one re-checks its own inputs and says what is missing.
 
-Read every step file *with the Read tool* at the start of its phase. Treat the file's content as the operating instructions for that phase. Do **not** paraphrase the step file from memory — read it.
+## Guided flow
 
-### Phase 0 — Essay Context
+For the user who brings nothing. Checkpoints mark where the user confirms before further work.
 
-1. **Read** `steps/00-essay-context.md`.
-2. Ask the user to fill in the Essay Context fields. If the user has already supplied some fields in the message that triggered this skill, accept those and ask only for the missing ones.
-3. If a field is ambiguous, ask up to 3 clarifying questions. After 3, proceed with reasonable defaults and flag them.
-4. **Save** the filled Essay Context block as `essay-context.md` in the user's current working directory if they consent — otherwise hold it in conversation state.
-5. Confirm the Essay Context with the user in one sentence ("Topic = X, stance = Y, APA 7, 2000 words, full essay — proceed?") before moving on.
+1. **Capture.** Run `capture-argument.md` to the Output block.
+   **Checkpoint:** ask "Does this argument feel like yours? Edit any field, or approve and we move on." Nothing downstream starts before approval.
+2. **Lit-review (optional).** Skip when the essay needs no external sources. Otherwise run `lit-review.md` on the Evidence needed list.
+   **Checkpoint:** ask the user to confirm the source map, `[VERIFY]` rows named. Drafting cites only the confirmed map.
+3. **Outline.** Run `outline.md` on the approved Output block and confirmed source map. The presented outline is the plan the loop renders.
+4. **Interleaved draft/refine loop.** For each section in the canonical order (Introduction → Literature review → Methods → Results → Discussion → Conclusion, collapsing per genre): draft the section (`draft.md`, `section:<name>`), then refine it (`refine.md`, batch scope: the new section is the audit focus, all previous sections loaded for linkage, transitions, and drift). Deferred entries accumulate across rounds; this flow carries the log and hands it to step 5, where `refine.md`'s Whole scope resolves or escalates each one.
+5. **Close the document.** Draft the abstract (`draft.md`; it skips its own refine round). Run the mandatory whole-document refine: the deferred log and the cross-section checks resolve in this pass.
+6. **Fresh-context audit.** Dispatch the AI-tell audit per `refine.md`: a subagent that never saw the drafting context reads the final text against `references/anti-ai-tell-catalogues.md`. A full fresh-context review beyond the tell-audit is the user's call, made on stakes.
 
-### Phase 1 — Capture argument
+## Capabilities
 
-1. **Read** `steps/01-capture-argument.md`.
-2. Ask the user for their raw thinking on the topic (a brain-dump under `## Raw input:`).
-3. Run the **grill loop** exactly as the step file describes: one question per turn, each with your recommended answer and a "why this matters" line. Stop when the Readiness checklist clears or at the 8-question soft cap.
-4. Emit the **Output block** (Thesis, Sub-claims, Personal angles, Counterarguments, Evidence needed, Open questions).
-5. **CHECKPOINT — show the user the Output block and ask: "Does this argument feel like yours? Edit any field, or say `looks good` and we move to lit-review."** Apply edits if the user gives them. Loop until the user approves.
-6. **Save** the approved Output block as `1-capture-output.md` in the current working directory if the user consents.
+| Capability | File | Runs on |
+|---|---|---|
+| Capture argument | `capture-argument.md` | nothing, a topic, a brain-dump, a settled argument |
+| Lit review | `lit-review.md` | a search seed, supplied sources, a fixed corpus |
+| Outline | `outline.md` | an Output block, a rough thesis, a template, a partial outline |
+| Draft | `draft.md` | a committed outline, an Output block, sources in hand |
+| Refine | `refine.md` | any draft, any stage (`section:<name>`, batch, whole) |
 
-### Phase 2 — Literature review (optional)
+## Rule layers
 
-1. Ask the user: "Do you want me to run a lit-review? It needs web search and adds real citations. Skip for reflection / argumentative essays that don't require external sources."
-2. If yes:
-   a. **Read** `steps/02-lit-review.md`.
-   b. Use your web-search tool (WebSearch, WebFetch, or equivalent). If web search is unavailable, **stop and tell the user honestly** — do not invent citations.
-   c. Produce the **Source map**, **Counter-evidence**, **Gaps**, and **Verification step** blocks as the step file specifies. Mark uncertain sources `[VERIFY]`.
-   d. **CHECKPOINT — show the user the Source map and remind them: "Click every URL before relying on any citation. Two sources are marked [VERIFY] — replace if verification fails."** Wait for the user's `looks good` or edits.
-   e. **Save** as `2-lit-review-output.md` if the user consents.
-3. If no, skip to Phase 3.
+`references/writing-principles.md` is the contract, loaded before any writing action. `references/anti-ai-tell-catalogues.md` is the detection layer, loaded before prose is generated or revised. Every rule in the principles file carries a `HARD` or `JUDGMENT` label; venue and document-owner rules outrank the principles file, and venue typesetting conventions outrank the catalogues.
 
-### Phase 3 — Outline
+## Out of scope
 
-1. **Read** `steps/03-outline.md`.
-2. Produce the granular paragraph-level outline using the capture-argument output and (if Phase 2 ran) the lit-review source map.
-3. Run the **Coverage check** the step file specifies. Flag anything that fails.
-4. Briefly confirm with the user ("Outline ready, ~9 paragraphs, all sub-claims covered. Proceed to draft?") — do not require a full re-read; this is a light checkpoint.
-5. **Save** as `3-outline-output.md` if the user consents.
+Venue submission machinery (desk-reject screening, cover letters, submission-stage retraction correspondence), bilingual writing, and numeric scoring of any kind. Large systematic research routes to the research base, as `lit-review.md` states at its head.
 
-### Phase 4 — Draft
+## Examples
 
-1. **Read** `steps/04-draft.md`.
-2. Render the outline as prose, applying the hedging-calibration table. Emit the **Draft** and **Author's notes** blocks.
-3. **Save** as `4-draft-output.md` if the user consents.
-
-### Phase 5 — Refine
-
-1. **Read** `steps/05-refine.md`.
-2. Run the 7-criterion checklist on the draft. Produce **Checklist**, **Defects**, **Revised Draft**, and **Continue?** blocks.
-3. Ask the user: "Any item still `warn` or `fail`? I can run another round, or stop here." If the user says another round, feed the Revised Draft back into Phase 5.
-4. **Save** the most recent revised draft as `5-refine-output.md` if the user consents.
-
-## Citation safety (non-negotiable)
-
-- Never invent citations. Phase 2 requires real web search.
-- Every source in the lit-review must have a working URL. Tell the user to click each URL before pasting any citation into the essay.
-- If asked to skip Phase 2 but the essay still needs citations, do not invent them — ask the user to provide sources, or rewrite the relevant sub-claim to not require one.
-
-## Output filing
-
-By default, ask the user once at the start of Phase 0:
-
-> Would you like me to save each phase's output into the current directory? (essay-context.md, 1-capture-output.md, 2-lit-review-output.md, 3-outline-output.md, 4-draft-output.md, 5-refine-output.md.) If no, I'll keep everything in this conversation.
-
-Respect their answer for the rest of the pipeline.
-
-## Skipping ahead / partial runs
-
-The user may invoke this skill with partial state ("I have a thesis already, jump to outline"). In that case:
-
-1. Ask which artefacts they already have (Essay Context, capture-argument output, lit-review source map).
-2. Accept the artefacts they paste; do not re-do those phases.
-3. Run from the first phase the user does not already have.
-
-## Worked example (reference, not a real student run)
-
-A complete worked run of this pipeline on the topic "AI coding assistants harm junior developers' debugging skill acquisition" is bundled in this skill at [`references/`](references/). Each phase's output is reproduced there.
-
-**Important:** the bundled example was generated by an LLM as a workflow demonstration, not by a real student writing a real essay. The grill-loop transcript, source map (with two `[VERIFY]` rows), draft, and refine pass are all synthetic. Use the bundled example as a **shape reference** — to see what good output for each phase looks like — not as evidence that the pipeline always produces publishable work. The full disclaimer is in [`references/README.md`](references/README.md).
-
-If the user asks "what does the output look like?" or "show me an example", point them to `references/` and reproduce the relevant file contents inline.
-
-## Reference resources for human-sounding writing
-
-The `5-refine` step's `Anti-AI-Tells` checklist is informed by:
-
-- Wikipedia, *Signs of AI writing* — comprehensive catalogue of AI-writing patterns.
-- `humanizer` by blader — https://github.com/blader/humanizer
-- `stop-slop` by hardikpandya — https://github.com/hardikpandya/stop-slop
-- `tropes.fyi` (gist) — https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1
+`examples/` holds synthetic worked examples for `capture-argument` and `refine`: generated prose and unchecked citation rows, presented as a shape reference with the disclaimer attached. Point users there when they ask what the output looks like.
