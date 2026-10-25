@@ -59,4 +59,4 @@ Venue submission machinery (desk-reject screening, cover letters, submission-sta
 
 ## Examples
 
-`examples/` holds synthetic worked examples for `capture-argument` and `refine`: generated prose and unchecked citation rows, presented as a shape reference with the disclaimer attached. Point users there when they ask what the output looks like.
+`examples/` holds synthetic worked examples for `capture-argument` and `refine`: generated prose and unchecked citation rows, presented as a shape reference only. Point users there when they ask what the output looks like.

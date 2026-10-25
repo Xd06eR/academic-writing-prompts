@@ -17,7 +17,7 @@ What the skill files cannot say: the load-bearing decisions, and the traps that 
 ## Traps
 
 - The catalogues file is a one-time extraction baked into the repo, not a maintained distill. Do not reintroduce provenance headers, refresh triggers, or source URLs into it; the source credits live in the README.
-- Everything in `examples/` is synthetic: generated prose, unchecked citation rows. Present it only as a shape reference, disclaimer attached.
+- Everything in `examples/` is synthetic: generated prose, unchecked citation rows. Present it only as a shape reference.
 - Extend the principles library from the actual sources; rules patched in from summaries of summaries drift.
 - Project-specific bindings (one citation style, official templates, frozen corpora) exist only as parameters and optional inputs; as defaults they break every user who is not that project.
 - `archive/` is frozen; no live file reads from it. This repo is MIT and borrows judgment content from a CC-BY-NC suite: synthesize fresh text, keep the URL credits where they live.
