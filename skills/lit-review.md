@@ -4,7 +4,7 @@ Build the source map an argument stands on. Given a search seed, a set of source
 
 Load `references/writing-principles.md` before running. Its sourcing and citation-mechanics sections govern what a row must contain to be citable. This capability maps sources, it does not write prose, so the detection catalogues are not needed here.
 
-Sized for small and medium work: a course essay, a report chapter, a bounded question. Large systematic research (multi-database protocols, screening pipelines, meta-analysis) cedes to the research base; if that is what the task needs, say so in one line and stop.
+Sized for small and medium work: a course essay, a report chapter, a bounded question. Large systematic research (multi-database protocols, screening pipelines, meta-analysis) is out of scope here; if that is what the task needs, say so in one line and stop.
 
 ## Inputs (run on whatever arrives)
 
@@ -122,4 +122,4 @@ Present the tables and stop. In the guided flow this is the checkpoint: nothing 
 - Verification honesty is governed by the principles file (Sourcing); this file adds only the map-time mechanics.
 - Search bases are recorded as searched, never embellished.
 - No fixed source count, no numeric quality scores: gates, flags, and the coverage rules above are the only ratings.
-- Big systematic research routes to the research base in one line, not by silently stretching this capability.
+- Big systematic research is out of scope: say so in one line rather than silently stretching this capability.

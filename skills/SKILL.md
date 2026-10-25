@@ -55,7 +55,7 @@ For the user who brings nothing. Checkpoints mark where the user confirms before
 
 ## Out of scope
 
-Venue submission machinery (desk-reject screening, cover letters, submission-stage retraction correspondence), bilingual writing, and numeric scoring of any kind. Large systematic research routes to the research base, as `lit-review.md` states at its head.
+Venue submission machinery (desk-reject screening, cover letters, submission-stage retraction correspondence), bilingual writing, and numeric scoring of any kind. Large systematic research is out of scope, as `lit-review.md` states at its head.
 
 ## Examples
 
