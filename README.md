@@ -1,4 +1,4 @@
-# Academic writing prompts
+# Academic Writing Prompts
 
 A skill for writing academic prose in English that survives a meticulous reader. The user owns the argument; the skill handles structure, sourcing discipline, register, hedging, and the editorial passes that keep prose honest.
 
