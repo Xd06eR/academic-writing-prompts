@@ -1,73 +1,60 @@
-# Academic Writing Prompts
+# Academic writing prompts
 
-A 5-phase pipeline for writing academic essays with an LLM, where **the user owns the argument** and the LLM handles structure, sourcing, hedging, and editorial discipline. Designed so the resulting essay does not sound like generic AI output.
+A skill for writing academic prose in English that survives a meticulous reader. The user owns the argument; the skill handles structure, sourcing discipline, register, hedging, and the editorial passes that keep prose honest.
 
-## Features
+## How it works
 
-- **Iterative grill loop** captures the user's argument before any drafting starts. One question per turn, each with a recommended answer and a "why this matters" line, until the argument can survive a sceptical reader (soft cap 8 questions).
-- **Single orchestrator per language** — one skill runs all 5 phases with checkpoints after Capture and Lit-review. No copy-pasting between phases.
-- **Bilingual parity.** English and Traditional Chinese pipelines, with Chinese written natively (not literal translation) and English technical terms inline where they help the LLM.
-- **Citation-safe lit-review.** Every source returned with a working URL; uncertain sources flagged `[VERIFY]`; refusal to fabricate.
-- **Behavioural refinement, not fake scores.** `pass / warn / fail` checklist with concrete defect fixes — auditable diffs instead of made-up numeric rubrics.
-- **Anti-AI-tells built into the refine step.** Scans for em-dash overuse, rule-of-three, "delve / leverage / multifaceted", hollow generalities, and similar patterns documented in the linked resources.
-- **Full worked example** for both languages in each skill's `references/` folder.
+Entry is any-phase: bring nothing, a topic, scattered materials, or a finished draft. The skill reads what arrived and starts at the matching capability. Each capability is standalone and runs on whatever it is given.
 
-## What the pipeline does
+Five capabilities:
 
-```
-[Essay Context preamble]              ← define topic, audience, citation style, scope once
-        │
-        ▼
-  1. capture-argument                  ← grill loop: 1 Q/turn with recommended answer,
-        │                                stops when argument passes the Readiness checklist
-        ▼
-  2. lit-review        (optional)      ← finds real, verifiable sources (requires web-search LLM)
-        │
-        ▼
-  3. outline                            ← granular paragraph-level structure
-        │
-        ▼
-  4. draft                              ← renders the outline as academic prose with calibrated hedging
-        │
-        ▼
-  5. refine                             ← 7-criterion behavioural checklist + concrete defect fixes
-```
+- **capture-argument**: grills a vague intent into a structured argument (thesis, sub-claims, counterarguments, evidence needed) before any drafting.
+- **lit-review**: builds the source map, counter-evidence list, and gap register an argument stands on; refuses to fabricate and flags what verification owes.
+- **outline**: commits structure to paper: literal topic sentences, per-section word allocations, and evidence placements the draft renders without re-deciding.
+- **draft**: renders committed structure into prose with calibrated hedging, discipline-correct register, and citations attached at claim creation.
+- **refine**: audits a draft against a seven-criterion checklist, fixes defects surgically, and runs the fresh-context anti-AI-tells audit.
 
-## Installation
+A guided flow chains the five for users who bring nothing: capture, then an optional lit-review, then outline, then an interleaved draft/refine loop that closes with a whole-document pass and the tell-audit. Checkpoints after capture and after the source map keep the user in charge of the argument.
 
-### Claude Code
+## The rules library
 
-```bash
-git clone https://github.com/Xd06eR/academic-writing-prompts.git
-cd academic-writing-prompts
-mkdir -p ~/.claude/skills
+Two files govern all writing work:
 
-# English (covers all 5 phases)
-cp -r skills/academic-writing ~/.claude/skills/academic-writing
+- `references/writing-principles.md` is the contract: sourcing, claim strength, hedging ladder, register, citation mechanics, consistency. Every rule carries a `HARD` (violation is a defect) or `JUDGMENT` (prompt, not quota) label.
+- `references/anti-ai-tell-catalogues.md`: the detection layer for machine-pattern prose, loaded before prose is generated or revised.
 
-# Traditional Chinese (optional)
-cp -r skills/academic-writing-zh ~/.claude/skills/academic-writing-zh
-```
+Venue and document-owner rules outrank the principles file; venue typesetting conventions outrank the catalogues.
 
-OpenCode users can swap `~/.claude/skills` for `~/.config/opencode/skills`, but OpenCode also scans `~/.claude/skills/` for compatibility — the Claude paths above work for both tools. Restart the client after install.
+## Research pairing
 
-### Manual use (any LLM)
+This repo is the writing base of a two-repo setup: the research base is [academic-research-skills](https://github.com/Imbad0202/academic-research-skills). Rigorous research (multi-agent search, verification infrastructure, systematic pipelines) lives there; the lit-review capability here stays lightweight and cedes large systematic work to it.
 
-Open the step files in [`skills/academic-writing/steps/`](skills/academic-writing/steps/) or [`skills/academic-writing-zh/steps/`](skills/academic-writing-zh/steps/) and paste them into your chat one phase at a time. The output of each step is the input to the next. Phase 2 (lit-review) requires an LLM with web search.
+## Examples
+
+`skills/examples/` holds synthetic worked examples (generated prose, unchecked citation rows) as shape references only.
 
 ## Companion resources
 
-The refine step's anti-AI-tells checklist is informed by these resources:
+The anti-AI-tell catalogues are informed by these resources:
 
-- Wikipedia, [*Signs of AI writing*](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
 - [`humanizer` by blader](https://github.com/blader/humanizer)
 - [`stop-slop` by hardikpandya](https://github.com/hardikpandya/stop-slop)
 - [`tropes.fyi`](https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1)
 
+## Installation
+
+```bash
+git clone https://github.com/Xd06eR/academic-writing-prompts.git
+mkdir -p ~/.claude/skills/academic-writing
+cp -r academic-writing-prompts/skills/. ~/.claude/skills/academic-writing/
+```
+
+Restart the client after install; the skill loads on `/academic-writing` or when the model routes to it. Each capability file also runs alone as a portable prompt: paste it into any chat together with `references/writing-principles.md` (add `references/anti-ai-tell-catalogues.md` for draft and refine) to run that capability by hand.
+
 ## Archive
 
-[`archive/`](archive/) holds the original monolithic V1–V3 prompts (English and Chinese) that this pipeline replaced. Kept for reference only — not maintained. Use the `skills/` folder instead.
+`archive/` is frozen; nothing live reads from it.
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+MIT: see [`LICENSE`](LICENSE).
