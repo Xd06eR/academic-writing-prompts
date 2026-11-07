@@ -52,7 +52,7 @@ Flagged words, with plain replacements:
 
 A formal word outside this list is not a tell by itself.
 
-Copula dodge: replacing plain is/are/has with grander verbs. serves as, stands as, functions as, operates as, marks, represents mean is; features, offers, maintains mean has; refers to opens encyclopedia articles. Restore the plain verb unless the longer one earns its place. The dodge exists because repetition pressure pushes away from basic verbs; resist it.
+Copula dodge: replacing plain is/are/has with grander verbs. serves as, stands as, functions as, operates as, marks, represents mean is; features, offers, maintains mean has; refers to opens encyclopedia articles. Restore the plain verb unless the longer one earns its place.
 
 Gravitas words: fundamental, crucial, essential, pivotal, vital beefing up ordinary claims. Delete the word; if the sentence loses nothing, it was carrying nothing.
 
@@ -186,5 +186,3 @@ While revising, work in passes:
 4. **Finish**. Restate each point in natural wording instead of patching flagged phrases one by one; when a sentence stays awkward, rebuild the paragraph around its main point. Alternate short and long sentences; real writing does.
 
 Quick checks before delivering (one sighting each, except where the home section sets its own threshold): any throat-clearing opener; any not-X-but-Y contrast against the §2 budget of one; any stacked qualifiers; any noun stack of three or more; three consecutive sentences of one length; punchy paragraph endings as a habit, not a single one; any em dash beyond the house ceiling; any vague declarative; any bold decoration; any chatbot wrapper. Name the pattern in any defect report, with location and a concrete substitute.
-
-The standard throughout: prose that reads as one person writing to another, uneven and specific and honest.
