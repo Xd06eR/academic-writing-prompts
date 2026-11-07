@@ -39,7 +39,8 @@ The anti-AI-tell catalogues are informed by these resources:
 
 - [`humanizer` by blader](https://github.com/blader/humanizer)
 - [`stop-slop` by hardikpandya](https://github.com/hardikpandya/stop-slop)
-- [`tropes.fyi`](https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1)
+- [`tropes.fyi` by ossa-ma](https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1)
+- [`Why is AI-generated language so hard to understand?` by Clark, Martin & Mahowald](https://arxiv.org/abs/2610.29162)
 
 ## Installation
 

@@ -2,10 +2,9 @@
 
 Patterns that mark prose as machine-generated. Load before generating prose and when revising it. The purpose is writing that reads as written by a person: clear, specific, varied. This file improves writing quality; it does not game AI detectors, and no rule here outranks a real clarity, precision, or support requirement.
 
-Why AI prose is detectable: a model writes by statistical likelihood, choosing the option that serves the most readers and subjects. Human writing aims at one reader and one subject, and it shows: the choices come out uneven and particular. Each pattern below is that default choice in one of its forms. Vocabulary habits rotate with every model release; structural habits persist, so structure leads this file. A tell's weight tracks how rarely a careful writer picks it on purpose; the safeguard is several tells together, because any single one can be on purpose.
-
 Standing rules:
 
+- Weight structure over vocabulary: word habits rotate with every model release; structural habits persist. A tell's weight tracks how rarely a careful writer picks it on purpose.
 - Descriptive, not prescriptive. Clustering and repetition are the signal; a single instance may be fine, except in §2 and §7, which act on one sighting.
 - Skip quotations, titles, proper names, and passages that mention a phrase as a phrase rather than use it. Salutations and sign-offs predate chatbots.
 - Keep details that carry the writer's voice: a specific unusual detail, mixed feelings stated honestly, a dated reference, a first-person choice the writer can explain, a genuine aside or self-correction. Strip the tells but keep the person: the result must still sound like someone, not something.
@@ -164,7 +163,18 @@ Remove these outright; nothing here needs rewriting.
 - **Hyphenated pairs everywhere**: hyphenate the compound modifier before the noun (a high-quality report); after the noun the hyphen drops (the report is high quality); dictionary-set compounds (third-party, cross-functional) keep their hyphen in every position.
 - **Hedging disguised as reassurance**: "Not always. Not perfectly." as a paragraph voice.
 
-## 10. How to apply
+## 10. Syntactic compression
+
+Constructions that pack a meaning into fewer tokens than the ordinary phrasing: grammatical, but costly to read. Weak alone; count in clusters, like §3 and §4. The economy rules elsewhere in this file cut empty modifiers and frames; they do not license dropping the function words that guide the parse.
+
+- **Stacked noun compounds**: three or more nouns chained as modifiers (a class-time shutdown requirement). Unpack with function words: a requirement to shut down class time.
+- **Ad-hoc denominal verbs**: a noun verbed for the occasion (footnote it, appendix the derivation). Prefer the plain phrase even when longer: move it to an appendix. Conventionalized denominals (to table, to host) are ordinary.
+- **Rare word pairings**: collocations no human corpus attests (a reader-patience budget), wider than §1's invented concept labels. Prefer the attested pairing; one fresh pair may be the writer's own, a run of them is a distributional signature.
+- **Dropped function words**: optional that removed wherever grammar permits (the paper the committee praised; the results suggest the effect is real). Restore it before a clause the reader cannot see coming; human writers keep it exactly there and drop it where the path is obvious.
+- **Animate verbs on inanimate subjects**: the compression half of false agency (§5), the verb standing in for a longer relation (the objection misunderstands for the objection rests on a misunderstanding). Name the relation in plain words.
+- **Long dependencies**: related words held apart by intervening material (The proposal, which the committee debated for three weeks and which two members opposed, failed). Move the modifier after the verb, or split the sentence.
+
+## 11. How to apply
 
 While drafting, these are constraints applied at the point of writing: choose the specific verb, the honest qualifier, the length the meaning needs, the structure the content asks for. Keep a sentence only when the reader gains something from it.
 
@@ -172,9 +182,9 @@ While revising, work in passes:
 
 1. **Mark**. Read the text once through and flag every pattern found, starting with the strongest; work at paragraph scale too, not only sentence scale: a contrast divided between two sentences, three parallel examples, or one closer reused after every section is one tell seen at a larger scale.
 2. **Rewrite**. Retain every claim the source supports. Restructure freely, but introduce no fact, name, number, date, quote, or citation beyond what the source material provides; if a sentence needs a detail you do not have, ask or write a simpler sentence.
-3. **Re-scan**. The patterns likeliest to survive a rewrite: negative parallelism, one-line closers, tricolons, em dashes, bold decoration. Check also whether the rewrite added or dropped any fact.
+3. **Re-scan**. The patterns likeliest to survive a rewrite: negative parallelism, one-line closers, tricolons, em dashes, bold decoration, fresh noun stacks (a compression fix often mints them). Check also whether the rewrite added or dropped any fact.
 4. **Finish**. Restate each point in natural wording instead of patching flagged phrases one by one; when a sentence stays awkward, rebuild the paragraph around its main point. Alternate short and long sentences; real writing does.
 
-Quick checks before delivering (one sighting each, except where the home section sets its own threshold): any throat-clearing opener; any not-X-but-Y contrast against the §2 budget of one; any stacked qualifiers; three consecutive sentences of one length; punchy paragraph endings as a habit, not a single one; any em dash beyond the house ceiling; any vague declarative; any bold decoration; any chatbot wrapper. Name the pattern in any defect report, with location and a concrete substitute.
+Quick checks before delivering (one sighting each, except where the home section sets its own threshold): any throat-clearing opener; any not-X-but-Y contrast against the §2 budget of one; any stacked qualifiers; any noun stack of three or more; three consecutive sentences of one length; punchy paragraph endings as a habit, not a single one; any em dash beyond the house ceiling; any vague declarative; any bold decoration; any chatbot wrapper. Name the pattern in any defect report, with location and a concrete substitute.
 
 The standard throughout: prose that reads as one person writing to another, uneven and specific and honest.

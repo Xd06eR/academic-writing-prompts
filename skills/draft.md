@@ -55,7 +55,7 @@ One mechanical pass over everything emitted this run before it ships to refine:
 - One spelling variant throughout (-ize/-ise, -or/-our), per the principles file.
 - Pronouns: every "this", "it", "they" has one unambiguous antecedent.
 - Scaffolding: no leftover placeholder markers beyond the declared citation gaps, no draft annotations, every abbreviation expanded at first use.
-- Catalogues quick checks (§10 of the catalogues file): run the full list there; it is the operative pre-delivery scan.
+- Catalogues quick checks (§11 of the catalogues file): run the full list there; it is the operative pre-delivery scan.
 - Citation hygiene: zero orphans in both directions (every in-text citation resolves to an entry; every entry is cited), per the principles file.
 
 This sweep is mechanical. The full AI-tell audit runs later, in refine, as a fresh-context pass; the draft does not self-certify.
